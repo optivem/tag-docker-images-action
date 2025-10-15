@@ -1,5 +1,5 @@
 name: 'Tag Docker Images'
-description: 'Tags Docker images with new tags for production release'
+description: 'Tags Docker images with new tags'
 
 inputs:
   image-urls:
