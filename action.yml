@@ -1,17 +1,21 @@
 name: 'Tag Docker Images'
-description: 'Tags Docker images with new tags'
+description: 'Tags Docker images with new tags for production releases and versioning workflows'
+author: 'Optivem'
+branding:
+  icon: 'tag'
+  color: 'blue'
 
 inputs:
   image-urls:
     description: 'JSON array of source Docker image URLs with existing tags'
     required: true
   tag:
-    description: 'Target tag to apply to images (e.g., v1.0.5)'
+    description: 'Target tag to apply to images (e.g., v1.0.5, latest, production)'
     required: true
 
 outputs:
   image-urls:
-    description: 'JSON array of Docker image URLs with new tags'
+    description: 'JSON array of Docker image URLs with new tags applied'
     value: ${{ steps.tag-images.outputs.image-urls }}
 
 runs:

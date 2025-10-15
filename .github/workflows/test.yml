@@ -1,0 +1,34 @@
+name: Test Action
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Test Action - Mock Images
+        id: test-action
+        uses: ./
+        with:
+          image-urls: '["hello-world:latest"]'
+          tag: 'test-tag'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify Output
+        run: |
+          echo "Output: ${{ steps.test-action.outputs.image-urls }}"
+          if [[ "${{ steps.test-action.outputs.image-urls }}" == *"test-tag"* ]]; then
+            echo "✅ Test passed - tag was applied correctly"
+          else
+            echo "❌ Test failed - tag was not applied"
+            exit 1
+          fi

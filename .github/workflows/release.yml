@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tag-major-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update major version tag
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          MAJOR_VERSION=${TAG%%.*}
+          
+          echo "Updating major version tag: v${MAJOR_VERSION}"
+          
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          
+          # Delete existing major version tag if it exists
+          git tag -d "v${MAJOR_VERSION}" 2>/dev/null || true
+          git push origin ":refs/tags/v${MAJOR_VERSION}" 2>/dev/null || true
+          
+          # Create new major version tag
+          git tag "v${MAJOR_VERSION}"
+          git push origin "v${MAJOR_VERSION}"
