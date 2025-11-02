@@ -1,5 +1,8 @@
 # Tag Docker Images Action
 
+[![Test Action](https://github.com/optivem/tag-docker-images-action/actions/workflows/test.yml/badge.svg)](https://github.com/optivem/tag-docker-images-action/actions/workflows/test.yml)
+[![Release](https://github.com/optivem/tag-docker-images-action/actions/workflows/release.yml/badge.svg)](https://github.com/optivem/tag-docker-images-action/actions/workflows/release.yml)
+
 A GitHub Action that tags Docker images with new tags, perfect for production releases and versioning workflows.
 
 ## Features
