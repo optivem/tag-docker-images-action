@@ -4,6 +4,7 @@
 [![Release](https://github.com/optivem/tag-docker-images-action/actions/workflows/release.yml/badge.svg)](https://github.com/optivem/tag-docker-images-action/actions/workflows/release.yml)
 
 [![GitHub release](https://img.shields.io/github/release/optivem/tag-docker-images-action.svg)](https://github.com/optivem/tag-docker-images-action/releases)
+[![GitHub](https://img.shields.io/github/license/optivem/tag-docker-images-action)](LICENSE)
 
 A GitHub Action that tags Docker images with new tags, perfect for production releases and versioning workflows.
 
