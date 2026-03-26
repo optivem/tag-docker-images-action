@@ -1,3 +1,6 @@
+> [!WARNING]
+> This action has moved to [optivem/actions](https://github.com/optivem/actions). Use `optivem/actions/tag-docker-images@v1` instead.
+
 # Tag Docker Images Action
 
 [![Test Action](https://github.com/optivem/tag-docker-images-action/actions/workflows/test.yml/badge.svg)](https://github.com/optivem/tag-docker-images-action/actions/workflows/test.yml)
@@ -59,7 +62,7 @@ jobs:
         id: get-images
         run: |
           # Your logic to discover staging images
-          echo "images=[\"ghcr.io/owner/app:staging\", \"ghcr.io/owner/api:staging\"]" >> $GITHUB_OUTPUT
+          echo "images=["ghcr.io/owner/app:staging", "ghcr.io/owner/api:staging"]" >> $GITHUB_OUTPUT
       
       - name: Tag for Production
         uses: optivem/tag-docker-images-action@v1
